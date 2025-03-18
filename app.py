@@ -4,7 +4,7 @@ from flask_socketio import SocketIO, emit, join_room, leave_room
 import os
 
 app = Flask(__name__, static_folder='static')
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key')
+app.config['SECRET_KEY'] = 'your-secret-key'
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Game state
@@ -214,6 +214,4 @@ def handle_reset_game(data):
     }, room=game_id)
 
 if __name__ == '__main__':
-    # Use PORT environment variable if defined, otherwise use 8081
-    port = int(os.environ.get('PORT', 8081))
-    socketio.run(app, host='0.0.0.0', port=port, debug=False)
+    socketio.run(app, host='127.0.0.1', port=8080, debug=True)
