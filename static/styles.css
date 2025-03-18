@@ -237,11 +237,14 @@ input[type="text"]:focus {
     padding: 0.75rem 1rem;
     border: 1px solid rgba(108, 92, 231, 0.2);
     margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .score-board {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .score-item {
@@ -321,6 +324,7 @@ input[type="text"]:focus {
 .actions {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 /* Animation for cells */
