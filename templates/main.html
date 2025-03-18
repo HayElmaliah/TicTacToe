@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tic-Tac-Toe</h1>
+            <p>Real-time multiplayer game</p>
+        </header>
+        
+        <div id="game-setup" class="card">
+            <h2>Join a Game</h2>
+            <p>Enter a game ID to create or join a game. Share this ID with your opponent.</p>
+            <div class="form-control">
+                <input type="text" id="game-id-input" placeholder="Enter Game ID" autocomplete="off">
+                <button id="join-btn" class="btn primary">Join Game</button>
+            </div>
+        </div>
+        
+        <!-- New layout with side-by-side design -->
+        <div class="game-layout">
+            <!-- Left column: game info and controls -->
+            <div class="game-info-container">
+                <div id="game-info" class="card compact hidden">
+                    <div class="game-header">
+                        <div>
+                            <p>Game ID: <span id="display-game-id" class="highlight"></span></p>
+                        </div>
+                        <div class="player-info">
+                            <span>You are: <span id="player-mark" class="player-mark"></span></span>
+                        </div>
+                    </div>
+                    <p id="game-status" class="status">Waiting for opponent...</p>
+                </div>
+                
+                <div class="game-container hidden" id="game-container">
+                    <div class="game-controls">
+                        <div id="score-board" class="score-board">
+                            <div class="score-item">X: 0</div>
+                            <div class="score-item">O: 0</div>
+                            <div class="score-item">Draws: 0</div>
+                        </div>
+                        
+                        <div class="actions">
+                            <button id="play-again-btn" class="btn action hidden">Play Again</button>
+                            <button id="reset-scores-btn" class="btn secondary">Reset Scores</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column: game board -->
+            <div class="game-board-container">
+                <div id="game-board" class="board hidden">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
